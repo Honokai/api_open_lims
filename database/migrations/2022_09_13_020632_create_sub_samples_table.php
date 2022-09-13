@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('sub_samples', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('sample_id')->references('id')->on('samples');
+            $table->string('value_unit');
+            $table->string('unit');
+            $table->string('status');
+            $table->date('received_date');
+            $table->string('received_by');
+            $table->text('description');
+            $table->string('incident_id');
+            $table->string('requests_id');
+            $table->string('storage_id');
+            $table->string('created_by');
             $table->timestamps();
         });
     }
